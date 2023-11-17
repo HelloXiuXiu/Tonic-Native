@@ -1,5 +1,5 @@
 import './style.css'
-import'./counter.js'
+import'./components/TonicSwitch.js'
 
 import Tonic from '@socketsupply/tonic'
 
