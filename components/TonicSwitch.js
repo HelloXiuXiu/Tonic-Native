@@ -1,33 +1,50 @@
 import Tonic from '@socketsupply/tonic'
 
+// API 
+// 
+// states:
+// ON/OFF
+// .switch - to get current state (true/false)
+// .switch(true) or .switch('true') - to set current state 
+// valye type - booling/srting
+//
+// props: 
+// ACTIVE (true/false) - state for the first render
+// DISABLE (true/false) 
+
 class TonicSwitch extends Tonic {
   constructor() {
     super()
     this.state.active = (this.props.active === 'true' || this.props.active === true)
-    // console.log(this.state.active) // false 
   }
 
   connected () {
-    this.state.active = (this.props.active === 'true')
-    this.state.active === true && this.classList.add('active')
-    // console.log(this.state.active) // true
+    this.state.active = (this.props.active === 'true' || this.props.active === true)
+    this.changeView()
     this.reRender()
   }
 
-  get value () {
+  get switch () {
     return this.state.active
   }
 
-  set value (v) {
+  set switch (v) {
     this.state.active = Boolean(v)
+    this.changeView()
   }
 
-  click(e) {
-    const el = Tonic.match(e.target, '[data-event="toggle"]')
-    if (!el) return
+  // click (e) {
+  //   const el = Tonic.match(e.target, '[data-event="toggle"]')
+  //   if (!el) return
 
-    this.state.active = !this.state.active
-    this.classList.toggle('active')
+  //   this.state.active = !this.state.active
+  //   this.classList.toggle('active')
+  // }
+
+  changeView () {
+    this.state.active === true
+      ? this.classList.add('active')
+      : this.classList.remove('active')
   }
 
   static stylesheet () {
