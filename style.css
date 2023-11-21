@@ -41,5 +41,30 @@ body {
 }
 
 #app {
-  padding: 40px;
+  padding: 20px 40px;
 }
+
+.controls {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.controls h3 {
+  color: var(--tonic-grey);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 8px 0;
+}
+
+.controls button {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.controls button.active,
+.controls button:hover {
+  opacity: 1;
+}
+
+
