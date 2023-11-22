@@ -9,4 +9,10 @@ function setDefaults(theme, platform) {
   document.body.setAttribute('theme', theme)
 }
 
-document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'android/linux'))
+// android/linux
+// ios/macos
+// windows
+
+//document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'android/linux'))
+document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'ios/macos'))
+//document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'windows'))

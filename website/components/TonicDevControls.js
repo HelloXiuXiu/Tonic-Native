@@ -2,10 +2,10 @@ import Tonic from '@socketsupply/tonic'
 
 class TonicDevControls extends Tonic {
   connected () {
-    this.setInitial() 
+    this.setActiveButtons()
   }
 
-  setInitial () {
+  setActiveButtons () {
     document.addEventListener("DOMContentLoaded", () => {
       let platform
       let theme
