@@ -1,5 +1,5 @@
 tonic-switch {
-  display: inline;
+  display: inline-block;
 }
 /* wrapper */
 
@@ -8,6 +8,17 @@ tonic-switch .tonic-switch-wrapper {
   cursor: pointer;
   border-radius: 50px;
   overflow: hidden;
+}
+
+tonic-switch .tonic-switch-wrapper::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  transition: all .3s ease-in-out;
 }
 
 body[platform='android/linux'] tonic-switch .tonic-switch-wrapper {
@@ -23,10 +34,21 @@ body[platform='ios/macos'] tonic-switch .tonic-switch-wrapper {
 body[platform='windows'] tonic-switch .tonic-switch-wrapper {
   width: 40px;
   height: 20px;
+}
+
+body[platform='android/linux'] tonic-switch .tonic-switch-wrapper::before {
+  border: 2px solid var(--tonic-grey);
+}
+
+body[platform='android/linux'] tonic-switch.active .tonic-switch-wrapper::before {
+  border: 2px solid var(--tonic-accent);
+}
+
+body[platform='windows'] tonic-switch .tonic-switch-wrapper::before {
   border: 1px solid var(--tonic-grey);
 }
 
-body[platform='windows'] tonic-switch.active .tonic-switch-wrapper {
+body[platform='windows'] tonic-switch.active .tonic-switch-wrapper::before {
   border: 1px solid var(--tonic-accent);
 }
 
@@ -46,8 +68,9 @@ tonic-switch.active .tonic-switch-wrapper .tonic-switch-base {
   opacity: 1;
 }
 
-body[platform='android/linux'] tonic-switch.active .tonic-switch-base {
-
+body[platform='android/linux'] tonic-switch .tonic-switch-base {
+  background-color: var(--tonic-accent);
+  opacity: 0.15;
 }
 
 body[platform='ios/macos'] tonic-switch.active .tonic-switch-base {
@@ -65,19 +88,24 @@ tonic-switch .tonic-switch-handle {
   left: 50%;
   background-color: var(--tonic-white);
   border-radius: 50px;
-  transition: transform .3s ease-in-out;
+  transition: all .3s ease-in-out;
   z-index: 2;
 }
 
 body[platform='android/linux'] tonic-switch .tonic-switch-handle {
-  top: 4px;
-  transform: translateX(-22px);
-  width: 24px;
-  height: 24px;
+  background-color: var(--tonic-grey);
+  top: 8px;
+  transform: translateX(-20px);
+  width: 16px;
+  height: 16px;
 }
 
 body[platform='android/linux'] tonic-switch.active .tonic-switch-handle {
+  background-color: var(--tonic-white);
+  top: 4px;
   transform: translateX(-2px);
+  width: 24px;
+  height: 24px;
 }
 
 body[platform='ios/macos'] .tonic-switch-handle {
@@ -93,7 +121,7 @@ body[platform='ios/macos'] tonic-switch.active .tonic-switch-handle {
 }
 
 body[platform='windows'] tonic-switch .tonic-switch-handle {
-  top: 3px;
+  top: 4px;
   transform: translateX(-16px);
   width: 12px;
   height: 12px;
