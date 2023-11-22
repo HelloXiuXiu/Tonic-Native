@@ -11,8 +11,8 @@ tonic-switch .tonic-switch-wrapper {
 }
 
 tonic-switch .tonic-switch-wrapper::before {
+  content: ' ';
   position: absolute;
-  content: '';
   top: 0;
   left: 0;
   right: 0;
@@ -41,7 +41,7 @@ body[platform='android/linux'] tonic-switch .tonic-switch-wrapper::before {
 }
 
 body[platform='android/linux'] tonic-switch.active .tonic-switch-wrapper::before {
-  border: none;
+  border: 1px solid transparent;
 }
 
 body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-wrapper::before {
@@ -53,7 +53,7 @@ body[platform='windows'] tonic-switch .tonic-switch-wrapper::before {
 }
 
 body[platform='windows'] tonic-switch.active .tonic-switch-wrapper::before {
-  border: none;
+  border: 1px solid transparent;
 }
 
 body[platform='windows'][theme="dark"] tonic-switch.active .tonic-switch-wrapper::before {
@@ -127,8 +127,23 @@ body[platform='android/linux'] tonic-switch.active .tonic-switch-handle {
   height: 24px;
 }
 
+body[platform='android/linux'] tonic-switch.active .tonic-switch-handle::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+}
+
 body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-handle {
   background-color: var(--tonic-black);
+}
+
+body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-handle::before {
+  background-color: var(--tonic-accent);
+  opacity: 0.45;
 }
 
 body[platform='ios/macos'] .tonic-switch-handle {
