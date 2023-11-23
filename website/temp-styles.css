@@ -1,12 +1,14 @@
 tonic-switch {
   display: inline-block;
 }
+
 /* wrapper */
 
 tonic-switch .tonic-switch-wrapper {
   position: relative;
   cursor: pointer;
   border-radius: 50px;
+  transition: all .3s ease-in-out;
 }
 
 tonic-switch .tonic-switch-wrapper::before,
@@ -34,8 +36,8 @@ body[platform='ios/macos'] tonic-switch .tonic-switch-wrapper {
   height: 31px;
 }
 
-body[platform='ios/macos'] tonic-switch:focus .tonic-switch-wrapper {
-  opacity: 0.8;
+body[platform='ios/macos'] tonic-switch:active .tonic-switch-wrapper {
+  opacity: 0.9;
 }
 
 body[platform='windows'] tonic-switch .tonic-switch-wrapper {
