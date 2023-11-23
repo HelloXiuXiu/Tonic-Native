@@ -124,6 +124,14 @@ body[platform='windows'] tonic-switch .tonic-switch-base {
   opacity: 0.1;
 }
 
+body[platform='windows'] tonic-switch:hover .tonic-switch-base {
+  opacity: 0.2;
+}
+
+body[platform='windows'] tonic-switch.active:hover .tonic-switch-base {
+  opacity: 1;
+}
+
 body[platform='windows'][theme="dark"] tonic-switch.active .tonic-switch-base {
   background-color: var(--tonic-accent);
   opacity: 0.45;
@@ -248,6 +256,17 @@ body[platform='windows'] tonic-switch:hover .tonic-switch-handle {
   width: 14px;
   height: 14px;
   transform: translateX(-17px);
+}
+
+body[platform='windows'] tonic-switch:active .tonic-switch-handle {
+  top: 3px;
+  width: 17px;
+  height: 14px;
+  transform: translateX(-17px);
+}
+
+body[platform='windows'] tonic-switch.active:active .tonic-switch-handle {
+  transform: translateX(-1px);
 }
 
 body[platform='windows'] tonic-switch.active .tonic-switch-handle {
