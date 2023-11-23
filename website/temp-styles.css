@@ -7,7 +7,6 @@ tonic-switch .tonic-switch-wrapper {
   position: relative;
   cursor: pointer;
   border-radius: 50px;
-  overflow: hidden;
 }
 
 tonic-switch .tonic-switch-wrapper::before {
@@ -68,6 +67,7 @@ tonic-switch .tonic-switch-base {
   background-color: var(--tonic-grey);
   opacity: 0.2;
   z-index: 1;
+  border-radius: 50px;
   transition: background-color .3s ease-in-out;
 }
 
@@ -119,6 +119,10 @@ body[platform='android/linux'] tonic-switch .tonic-switch-handle {
   height: 16px;
 }
 
+body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle {
+  background-color: var(--tonic-grey-secondary);
+}
+
 body[platform='android/linux'] tonic-switch.active .tonic-switch-handle {
   background-color: var(--tonic-white);
   top: 4px;
@@ -127,7 +131,8 @@ body[platform='android/linux'] tonic-switch.active .tonic-switch-handle {
   height: 24px;
 }
 
-body[platform='android/linux'] tonic-switch.active .tonic-switch-handle::before {
+body[platform='android/linux'] tonic-switch .tonic-switch-handle::before,
+body[platform='android/linux'] tonic-switch .tonic-switch-handle::after {
   content: ' ';
   position: absolute;
   top: 0;
@@ -135,6 +140,27 @@ body[platform='android/linux'] tonic-switch.active .tonic-switch-handle::before 
   right: 0;
   bottom: 0;
   border-radius: 50px;
+}
+
+body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle::after {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 0px 12px var(--tonic-grey);
+  opacity: 0.1;
+}
+
+body[platform='android/linux'] tonic-switch:active .tonic-switch-handle::after,
+body[platform='android/linux'] tonic-switch.active:active .tonic-switch-handle::after {
+  opacity: 0.2;
+}
+
+body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::after {
+  box-shadow: 0px 0px 0px 8px var(--tonic-grey);
+}
+
+body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::before {
+  background-color: var(--tonic-accent);
+  opacity: 0.15;
 }
 
 body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-handle {
