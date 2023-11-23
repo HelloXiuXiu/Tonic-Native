@@ -9,7 +9,8 @@ tonic-switch .tonic-switch-wrapper {
   border-radius: 50px;
 }
 
-tonic-switch .tonic-switch-wrapper::before {
+tonic-switch .tonic-switch-wrapper::before,
+tonic-switch .tonic-switch-wrapper::after {
   content: ' ';
   position: absolute;
   top: 0;
@@ -17,6 +18,9 @@ tonic-switch .tonic-switch-wrapper::before {
   right: 0;
   bottom: 0;
   border-radius: 50px;
+}
+
+tonic-switch .tonic-switch-wrapper::after {
   transition: all .3s ease-in-out;
 }
 
@@ -30,6 +34,10 @@ body[platform='ios/macos'] tonic-switch .tonic-switch-wrapper {
   height: 31px;
 }
 
+body[platform='ios/macos'] tonic-switch:focus .tonic-switch-wrapper {
+  opacity: 0.8;
+}
+
 body[platform='windows'] tonic-switch .tonic-switch-wrapper {
   width: 40px;
   height: 20px;
@@ -41,6 +49,17 @@ body[platform='android/linux'] tonic-switch .tonic-switch-wrapper::before {
 
 body[platform='android/linux'] tonic-switch.active .tonic-switch-wrapper::before {
   border: 1px solid transparent;
+}
+
+body[platform='android/linux'] tonic-switch:hover .tonic-switch-wrapper::after,
+body[platform='android/linux'] tonic-switch:focus .tonic-switch-wrapper::after {
+  background-color: var(--tonic-grey);
+  opacity: 0.1;
+}
+
+body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-wrapper::after,
+body[platform='android/linux'] tonic-switch.active:focus .tonic-switch-wrapper::after {
+  opacity: 0;
 }
 
 body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-wrapper::before {
@@ -114,12 +133,14 @@ tonic-switch .tonic-switch-handle {
 body[platform='android/linux'] tonic-switch .tonic-switch-handle {
   background-color: var(--tonic-grey);
   top: 8px;
-  transform: translateX(-20px);
+  transform: translateX(-18px);
   width: 16px;
   height: 16px;
 }
 
-body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle {
+body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle,
+body[platform='android/linux'] tonic-switch:active .tonic-switch-handle,
+body[platform='android/linux'] tonic-switch:focus .tonic-switch-handle  {
   background-color: var(--tonic-grey-secondary);
 }
 
@@ -131,6 +152,16 @@ body[platform='android/linux'] tonic-switch.active .tonic-switch-handle {
   height: 24px;
 }
 
+body[platform='android/linux'] tonic-switch:active .tonic-switch-handle {
+  transform: translate(-24px, -6px);
+  width: 28px;
+  height: 28px;
+}
+
+body[platform='android/linux'] tonic-switch.active:active .tonic-switch-handle {
+  transform: translate(-4px, -2px);
+}
+
 body[platform='android/linux'] tonic-switch .tonic-switch-handle::before,
 body[platform='android/linux'] tonic-switch .tonic-switch-handle::after {
   content: ' ';
@@ -140,13 +171,17 @@ body[platform='android/linux'] tonic-switch .tonic-switch-handle::after {
   right: 0;
   bottom: 0;
   border-radius: 50px;
+  transition: all .3s ease-in-out;
 }
 
-body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle::after {
-  width: 100%;
-  height: 100%;
+body[platform='android/linux'] tonic-switch:hover .tonic-switch-handle::after,
+body[platform='android/linux'] tonic-switch:focus .tonic-switch-handle::after {
   box-shadow: 0px 0px 0px 12px var(--tonic-grey);
   opacity: 0.1;
+}
+
+body[platform='android/linux'] tonic-switch:active .tonic-switch-handle::after {
+  box-shadow: 0px 0px 0px 6px var(--tonic-grey);
 }
 
 body[platform='android/linux'] tonic-switch:active .tonic-switch-handle::after,
@@ -154,11 +189,17 @@ body[platform='android/linux'] tonic-switch.active:active .tonic-switch-handle::
   opacity: 0.2;
 }
 
-body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::after {
+body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::after,
+body[platform='android/linux'] tonic-switch.active:focus .tonic-switch-handle::after {
   box-shadow: 0px 0px 0px 8px var(--tonic-grey);
 }
 
-body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::before {
+body[platform='android/linux'] tonic-switch.active:active .tonic-switch-handle::after {
+  box-shadow: 0px 0px 0px 6px var(--tonic-grey);
+}
+
+body[platform='android/linux'] tonic-switch.active:hover .tonic-switch-handle::before,
+body[platform='android/linux'] tonic-switch.active:focus .tonic-switch-handle::before  {
   background-color: var(--tonic-accent);
   opacity: 0.15;
 }
