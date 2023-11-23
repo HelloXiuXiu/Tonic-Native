@@ -14,5 +14,5 @@ function setDefaults(theme, platform) {
 // windows
 
 //document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'android/linux'))
-document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'ios/macos'))
-//document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'windows'))
+//document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'ios/macos'))
+document.addEventListener("DOMContentLoaded", () => setDefaults('light', 'windows'))

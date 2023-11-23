@@ -31,20 +31,6 @@ body[platform='android/linux'] tonic-switch .tonic-switch-wrapper {
   height: 32px;
 }
 
-body[platform='ios/macos'] tonic-switch .tonic-switch-wrapper {
-  width: 51px;
-  height: 31px;
-}
-
-body[platform='ios/macos'] tonic-switch:active .tonic-switch-wrapper {
-  opacity: 0.9;
-}
-
-body[platform='windows'] tonic-switch .tonic-switch-wrapper {
-  width: 40px;
-  height: 20px;
-}
-
 body[platform='android/linux'] tonic-switch .tonic-switch-wrapper::before {
   border: 2px solid var(--tonic-grey);
 }
@@ -66,6 +52,28 @@ body[platform='android/linux'] tonic-switch.active:focus .tonic-switch-wrapper::
 
 body[platform='android/linux'][theme="dark"] tonic-switch.active .tonic-switch-wrapper::before {
   background-color: var(--tonic-white);
+}
+
+body[platform='ios/macos'] tonic-switch .tonic-switch-wrapper {
+  width: 51px;
+  height: 31px;
+}
+
+body[platform='ios/macos'] tonic-switch:active .tonic-switch-wrapper {
+  opacity: 0.9;
+}
+
+body[platform='windows'] tonic-switch .tonic-switch-wrapper {
+  width: 40px;
+  height: 20px;
+}
+
+body[platform='windows'] tonic-switch:focus .tonic-switch-wrapper {
+  box-shadow:0px 0px 0px 1px var(--tonic-white), 0px 0px 0px 3px var(--tonic-grey-secondary);
+}
+
+body[platform='windows'][theme="dark"] tonic-switch:focus .tonic-switch-wrapper {
+  box-shadow:0px 0px 0px 1px var(--tonic-black), 0px 0px 0px 3px var(--tonic-grey-secondary);
 }
 
 body[platform='windows'] tonic-switch .tonic-switch-wrapper::before {
@@ -233,6 +241,13 @@ body[platform='windows'] tonic-switch .tonic-switch-handle {
   width: 12px;
   height: 12px;
   background-color: var(--tonic-grey);
+}
+
+body[platform='windows'] tonic-switch:hover .tonic-switch-handle {
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-17px);
 }
 
 body[platform='windows'] tonic-switch.active .tonic-switch-handle {
